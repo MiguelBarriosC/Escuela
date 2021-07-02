@@ -1,0 +1,30 @@
+<div class="container port-body">
+    <div class="row">
+        <div class="col-sm-3">
+            <select name="casas" class="form-control" (change)="selectChange($event.target.value)">
+                <option selected disabled>Casas</option>
+                <option *ngFor="let casa of casas" value="{{ casa }}">{{ casa }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Patronus</td>
+                    <td>Age</td>
+                    <td>Image</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let personaje of personajes | sort:['name', 'asc']">
+                    <td>{{ personaje.name | uppercase }}</td>
+                    <td>{{ personaje.patronus }}</td>
+                    <td>{{ personaje.yearOfBirth > 0 ? date - personaje.yearOfBirth: 'Unknow' }}</td>
+                    <td><img src="{{ personaje.image }}" class="img-icon"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>

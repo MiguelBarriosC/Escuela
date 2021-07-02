@@ -1,0 +1,22 @@
+<div class="container port-body">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Patronus</td>
+                    <td>Age</td>
+                    <td>Image</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let profesor of profesores | sort:['name', 'asc']">
+                    <td>{{ profesor.name | uppercase }}</td>
+                    <td>{{ profesor.patronus }}</td>
+                    <td>{{ profesor.yearOfBirth > 0 ? date - profesor.yearOfBirth: 'Unknow' }}</td>
+                    <td><img src="{{ profesor.image }}" class="img-icon"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>  
+</div>

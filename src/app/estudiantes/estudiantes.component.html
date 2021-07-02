@@ -1,0 +1,64 @@
+<div class="container port-body">
+    <div class="row">
+        <div class="col-sm-3">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Solicitar nuevo estudiante
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Estudiante nuevo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="create-form" [formGroup]="estudianteForm" (ngSubmit)="estFormOnSubmit()">
+                                <label for="input">Nombre:</label>
+                                <input type="text" class="form-control" formControlName="nombre">
+                                <label for="input">Especie:</label>
+                                <input type="text" class="form-control" formControlName="especie">
+                                <label for="input">Genero:</label>
+                                <select name="genero" class="form-control" formControlName="genero">
+                                    <option selected disabled>Genero</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <label for="input">Casa:</label>
+                                <select name="casas" class="form-control" formControlName="casa">
+                                    <option *ngFor="let casa of casas" value="{{ casa }}">{{ casa }}</option>
+                                </select>
+                                <label for="input">Fecha de nacimiento:</label>
+                                <input type="date" name="dateBirth" class="form-control" formControlName="dateOfBirth">
+                                <br>
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close" [disabled]="!estudianteForm.valid">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Patronus</td>
+                    <td>Age</td>
+                    <td>Image</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiante of estudiantes | sort:['name', 'asc']">
+                    <td>{{ estudiante.name | uppercase }}</td>
+                    <td>{{ estudiante.patronus }}</td>
+                    <td>{{ estudiante.yearOfBirth > 0 ? date - estudiante.yearOfBirth: 'Unknow' }}</td>
+                    <td><img src="{{ estudiante.image }}" class="img-icon"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>

@@ -1,0 +1,34 @@
+.content{
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    padding-top: 10px;
+}
+.card{
+    cursor: pointer;
+    width: 100%;
+    height: 170px;
+}
+.card:hover, .active{
+    height: 180px;
+}
+.card-footer{
+    background-color: transparent;
+    border: transparent;
+}
+#estudiantes{
+    background-color: #ff5733;
+    opacity: 0.9;
+}
+#profesores{
+    background-color:  #5f8dff  ;
+    opacity: 0.9;
+}
+#personajes{
+    background-color:#b0ff79 ;
+    opacity: 0.9;
+}
+.main-icon{
+    width: 120px;
+}

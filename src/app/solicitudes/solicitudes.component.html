@@ -1,0 +1,23 @@
+<div class="container port-body">
+    <label for="sol-table"><h5>Solicitudes</h5></label>
+    <div class="row">
+        <table class="table table-striped" id="sol-table">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Specie</td>
+                    <td>House</td>
+                    <td>Gender</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estudiante of students">
+                    <td>{{ estudiante.nombre | uppercase }}</td>
+                    <td>{{ estudiante.especie }}</td>
+                    <td>{{ estudiante.casa }}</td>
+                    <td>{{ estudiante.genero }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+</div>
